@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+}
+
+.button-format {
+  margin-right: 5%;
+}
+.table_tr_hover:hover{
+  background-color: #403b3b30;
+  font-weight: bolder;
+}
+
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+}
+
+.show {
+  display: inline-block;
+}
+
+.hide {
+  display: none;
+}

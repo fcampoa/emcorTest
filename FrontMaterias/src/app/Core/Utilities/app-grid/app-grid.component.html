@@ -1,0 +1,22 @@
+<div class="mat-elevation-z8 p-4">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <div *ngFor="let item of columns">
+        <ng-container *ngIf="show(item)" [matColumnDef]="item.field" >
+            <th mat-cell-header *matHeaderCellDef mat-sort-header> {{ item.header }} </th>
+            <td mat-cell *matCellDef="let row"> {{ row[item.field] }} </td>
+        </ng-container>
+      </div>
+        <ng-container matColumnDef="actions" (mouseenter)="showDelete = true" (mouseleave)="showDelete = false">
+          <th mat-cell-header *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let row">
+            <button [ngClass]="showDelete ? 'show' : 'hide'" mat-icon-button (click)="result(row)">
+              <mat-icon>Close</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="rowClick(row)" class="table_tr_hover" style="cursor: pointer;">
+        </tr>
+    </table>
+    <mat-paginator *ngIf="showPager" [pageSizeOptions]="[5, 10, 20]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+</div>
