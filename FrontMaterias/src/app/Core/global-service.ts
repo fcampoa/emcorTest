@@ -80,7 +80,7 @@ export class GlobalApiService {
     }
   }
   public create(controllerRoute: string) {
-    const actual = new GlobalServiceContainer(this.settings.url + '/' + controllerRoute + '/', this);
+    const actual = new GlobalServiceContainer(this.settings.url + '/api/' + controllerRoute + '/', this);
     const trigger = () => actual;
     actual['setTrigger'](trigger);
     this.routesDictionary[controllerRoute] = trigger;
@@ -111,7 +111,7 @@ export class GlobalApiService {
   }
 
   private getById(url: string, id: string | number, paramsDictionary?: any) {
-    return this.get(`${url}${id}`, paramsDictionary);
+    return this.get(`${url}/${id}`, paramsDictionary);
   }
 
   private delete(url: string, id: string | number, paramsDictionary?: any) {

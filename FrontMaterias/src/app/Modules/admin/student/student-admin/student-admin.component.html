@@ -1,0 +1,34 @@
+<app-view [title]="title" [showAdd]="false" [showDelete]="false">
+  <form #form="ngForm" [formGroup]="studentGroup" (ngSubmit)="saveOrUpdate()" novalidate>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input formControlName="studentName" type="text" class="form-control border-input" placeholder="Nombre">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Carrera</label>
+          <input formControlName="career" type="text" class="form-control border-input" placeholder="Carrera">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>No. Control</label>
+          <input formControlName="controlNumber" type="text" class="form-control border-input" placeholder="Número de control">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-right">
+        <button type="button" class="btn btn-secondary" (click)="back()">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </form>
+
+</app-view>

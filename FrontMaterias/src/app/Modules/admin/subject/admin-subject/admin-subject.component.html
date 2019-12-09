@@ -1,0 +1,22 @@
+
+<app-view [title]="title" [showAdd]="false" [showDelete]="false">
+  <form #form="ngForm" [formGroup]="subjectGroup" (ngSubmit)="saveOrUpdate()" novalidate>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input formControlName="subjectName" type="text" class="form-control border-input" placeholder="Nombre">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-right">
+        <button type="button" class="btn btn-secondary" (click)="back()">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </form>
+</app-view>
+    <app-view [title]="'Grupos de esta materia (clic para ver detalles)'">
+        <app-grid [data]="groups" [columns]="columns" [editRoute]="groupRoute" [showPager]="false"></app-grid>
+      </app-view>

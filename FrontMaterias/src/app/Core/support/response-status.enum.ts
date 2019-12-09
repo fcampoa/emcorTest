@@ -1,6 +1,6 @@
 export enum ResponseStatus {
-  info = 1,
-  success = 2,
+  info = 2,
+  success = 0,
   warning = 3,
-  error = 4
+  error = 1
   }

@@ -8,12 +8,12 @@ import { environment as config } from '../../environments/environment';
 
 
 export function getServicesSettings(): GlobalServiceSettings {
-  if (document && document.getElementsByTagName) {
-    const baseElements: HTMLBaseElement[] = Array.from(document.getElementsByTagName('base'));
-    if (baseElements && baseElements.length > 0) {
-      return new GlobalServiceSettings(`${baseElements[0].href}api`, GLOBAL_SERVICE_DEFINITION);
-    }
-  }
+  // if (document && document.getElementsByTagName) {
+  //   const baseElements: HTMLBaseElement[] = Array.from(document.getElementsByTagName('base'));
+  //   if (baseElements && baseElements.length > 0) {
+  //     return new GlobalServiceSettings(`${baseElements[0].href}api`, GLOBAL_SERVICE_DEFINITION);
+  //   }
+  // }
   return new GlobalServiceSettings(config.base_url, GLOBAL_SERVICE_DEFINITION);
 }
 @NgModule({

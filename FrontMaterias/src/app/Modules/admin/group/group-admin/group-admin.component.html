@@ -1,0 +1,72 @@
+<app-view [title]="title" [showAdd]="false" [showDelete]="false">
+  <form #form="ngForm" [formGroup]="classGroup" (ngSubmit)="saveOrUpdate()" novalidate>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Titulo</label>
+          <input formControlName="groupTitle" type="text" class="form-control border-input" placeholder="Titulo">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="col-sm">
+          <label>Maestros</label>
+          <select class="form-control" id="teacherSelect" formControlName="teacherSelect">
+            <option selected [value]="-1">Elegir Maestro</option>
+            <option *ngFor="let t of teachers" [value]="t.Id">{{ t.Name }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Semestre</label>
+          <input formControlName="groupSemester" type="text" class="form-control border-input" placeholder="Semestre">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Aula</label>
+          <input formControlName="groupRoom" type="text" class="form-control border-input" placeholder="Aula">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="col-sm">
+          <label>Materia</label>
+          <select class="form-control" id="subjectSelect" formControlName="subjectSelect">
+            <option selected [value]="-1">Elegir Materia</option>
+            <option *ngFor="let s of subjects" [value]="s.Id">{{ s.Name }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Horario</label>
+          <input formControlName="groupSchedule" type="text" class="form-control border-input" placeholder="Horario">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 p-0">
+            <app-view [title]="'Alumnos Disponibles'">
+              <app-grid [data]="students" [columns]="columns" [allowAdd]="true" (action)="add($event)"></app-grid>
+            </app-view>
+          </div>
+          <div class="col-md-6 p-0">
+              <app-view [title]="'Alumnos Asignados'">
+                <app-grid [data]="groupStudents" [columns]="columns" [allowAdd]="true" (action)="delete($event)"></app-grid>
+              </app-view>
+            </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-right">
+        <button type="button" class="btn btn-secondary" (click)="back()">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </form>
+
+</app-view>

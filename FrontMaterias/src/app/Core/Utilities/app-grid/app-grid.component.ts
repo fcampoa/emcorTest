@@ -71,7 +71,7 @@ export class AppGridComponent implements OnInit, AfterViewInit {
   }
 
   edit(item: any): void {
-    this.route.navigate([this.editRoute + '/' + item.id]);
+    this.route.navigate([this.editRoute + '/' + item.Id]);
   }
 
   result(row: any): void {
