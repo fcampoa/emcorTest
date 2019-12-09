@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="96f0f2dc-2f60-4ffd-a491-1a8750900e5c" ChangeDateTime="12/07/2019 23:05:36">
+    <Property Name="ElementName" Value="[dbo].[TeacherSubject].[teacher_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TeacherSubject]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Teacher_id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d27f9111-239c-4e85-ae85-c0f222361a38" ChangeDateTime="12/07/2019 23:05:41">
+    <Property Name="ElementName" Value="[dbo].[TeacherSubject].[room]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TeacherSubject]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Room" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="58e9c8a5-a72f-4f55-bc58-cf2dd7b84479" ChangeDateTime="12/07/2019 23:05:44">
+    <Property Name="ElementName" Value="[dbo].[TeacherSubject].[semester]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TeacherSubject]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Semester" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="afaa27ab-deca-44fe-b5d2-f277902b9819" ChangeDateTime="12/07/2019 23:05:47">
+    <Property Name="ElementName" Value="[dbo].[TeacherSubject].[schedule]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TeacherSubject]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Schedule" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="41a1012b-c0ad-420b-9d07-dcc120ac8198" ChangeDateTime="12/07/2019 23:05:49">
+    <Property Name="ElementName" Value="[dbo].[TeacherSubject].[subject_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TeacherSubject]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Subject_id" />
+  </Operation>
+</Operations>

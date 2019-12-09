@@ -1,0 +1,23 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Group] (Table)
+       [dbo].[GroupDetail] (Table)
+       [dbo].[Student] (Table)
+       [dbo].[Subject] (Table)
+       [dbo].[Teacher] (Table)
+       [dbo].[FK_Group_Teacher] (Foreign Key)
+       [dbo].[FK_Group_Subject] (Foreign Key)
+       [dbo].[FK_GroupDetail_Group] (Foreign Key)
+       [dbo].[FK_GroupDetail_Student] (Foreign Key)
+
+** Supporting actions

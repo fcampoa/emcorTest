@@ -1,0 +1,6 @@
+C:\Users\Usuario\Desktop\Antares\TestEmcor\BackMaterias\Emcor\bin\Debug\Emcor.dacpac
+C:\Users\Usuario\Desktop\Antares\TestEmcor\BackMaterias\Emcor\bin\Debug\Emcor.dll
+C:\Users\Usuario\Desktop\Antares\TestEmcor\BackMaterias\Emcor\bin\Debug\Emcor.pdb
+C:\Users\Usuario\Desktop\Antares\TestEmcor\BackMaterias\Emcor\obj\Debug\Emcor.dll
+C:\Users\Usuario\Desktop\Antares\TestEmcor\BackMaterias\Emcor\obj\Debug\Emcor.pdb
+C:\Users\Usuario\Desktop\Antares\TestEmcor\BackMaterias\Emcor\obj\Debug\Emcor.sqlprojAssemblyReference.cache

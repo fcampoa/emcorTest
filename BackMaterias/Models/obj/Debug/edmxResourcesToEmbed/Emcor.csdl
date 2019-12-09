@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmcorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__RefactorLog">
+    <Key>
+      <PropertyRef Name="OperationKey" />
+    </Key>
+    <Property Name="OperationKey" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Teacher_id" Type="Int32" />
+    <Property Name="Room" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Semester" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Schedule" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Subject_id" Type="Int32" />
+    <NavigationProperty Name="Subject" Relationship="Self.FK_Group_Subject" FromRole="Group" ToRole="Subject" />
+    <NavigationProperty Name="Teacher" Relationship="Self.FK_Group_Teacher" FromRole="Group" ToRole="Teacher" />
+    <NavigationProperty Name="GroupDetails" Relationship="Self.FK_GroupDetail_Group" FromRole="Group" ToRole="GroupDetail" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GroupDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Group_id" Type="Int32" />
+    <Property Name="Student_id" Type="Int32" />
+    <NavigationProperty Name="Group" Relationship="Self.FK_GroupDetail_Group" FromRole="GroupDetail" ToRole="Group" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_GroupDetail_Student" FromRole="GroupDetail" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Career" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Control_number" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GroupDetails" Relationship="Self.FK_GroupDetail_Student" FromRole="Student" ToRole="GroupDetail" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Groups" Relationship="Self.FK_Group_Subject" FromRole="Subject" ToRole="Group" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Groups" Relationship="Self.FK_Group_Teacher" FromRole="Teacher" ToRole="Group" />
+  </EntityType>
+  <Association Name="FK_Group_Subject">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+    <End Role="Group" Type="Self.Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Group">
+        <PropertyRef Name="Subject_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Group_Teacher">
+    <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+    <End Role="Group" Type="Self.Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Group">
+        <PropertyRef Name="Teacher_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupDetail_Group">
+    <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+    <End Role="GroupDetail" Type="Self.GroupDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupDetail">
+        <PropertyRef Name="Group_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupDetail_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="GroupDetail" Type="Self.GroupDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupDetail">
+        <PropertyRef Name="Student_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmcorEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
+    <EntitySet Name="Groups" EntityType="Self.Group" />
+    <EntitySet Name="GroupDetails" EntityType="Self.GroupDetail" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="Subjects" EntityType="Self.Subject" />
+    <EntitySet Name="Teachers" EntityType="Self.Teacher" />
+    <AssociationSet Name="FK_Group_Subject" Association="Self.FK_Group_Subject">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="Group" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Group_Teacher" Association="Self.FK_Group_Teacher">
+      <End Role="Teacher" EntitySet="Teachers" />
+      <End Role="Group" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupDetail_Group" Association="Self.FK_GroupDetail_Group">
+      <End Role="Group" EntitySet="Groups" />
+      <End Role="GroupDetail" EntitySet="GroupDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupDetail_Student" Association="Self.FK_GroupDetail_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="GroupDetail" EntitySet="GroupDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
